@@ -1,0 +1,15 @@
+{
+  "name": "project-template-lesson",
+  "version": "1.0.0",
+  "description": "Project Home Work For TypeScript Basic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "lint"
+  ],
+  "author": "Aleksej Miloradov",
+  "license": "ISC"
+}
