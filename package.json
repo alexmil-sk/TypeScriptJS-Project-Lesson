@@ -3,13 +3,30 @@
   "version": "1.0.0",
   "description": "Project Home Work For TypeScript Basic",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rd -r public/scripts 2>null & tsc",
+    "build:dev": "rd -r public/scripts 2>null & tsc -p tsconfig-dev.json",
+    "start": "node public/scripts/index.js",
+    "lint": "eslint src --ext .js --ext .ts",
+    "lint:public": "eslint public/scripts --ext .js",
+    "lint-fix": "eslint src --ext .js --ext .ts --fix",
+    "lint-fix:public": "eslint public/scripts --ext .js --fix"
   },
   "keywords": [
     "typescript",
     "lint"
   ],
-  "author": "Aleksej Miloradov",
-  "license": "ISC"
+  "author": "Алексей Милорадов",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.14",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
+    "eslint": "^8.8.0"
+  }
 }
