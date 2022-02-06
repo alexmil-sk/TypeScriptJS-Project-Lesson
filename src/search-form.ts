@@ -12,7 +12,7 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
       maxPrice: 120
     };
     return searchObj;
-  })();
+  }());
 
 
   //========================================
