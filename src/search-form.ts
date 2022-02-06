@@ -1,11 +1,23 @@
 import { renderBlock } from './lib.js';
+import { iSearchFormData } from './interfaces.js';
+
 
 export function renderSearchFormBlock(checkInDate: string, checkOutDate: string) {
-  
+
+  (function search(): iSearchFormData {
+    const searchObj = {
+      city: 'Санкт-Петербург',
+      dateIn: checkInDate,
+      dateOut: checkOutDate,
+      maxPrice: 120
+    };
+    return searchObj;
+  })();
+
 
   //========================================
 
-  function zeroBefore(value: string | number ): number | string {
+  function zeroBefore(value: string | number): number | string {
     if (value < 10) {
       value = '0' + value;
     }
@@ -23,7 +35,7 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
 
   const monthCheckOut: string | number = zeroBefore(today.getMonth() + 2);
   const maxDateOut: Date | number | string = new Date(year, +monthCheckOut, 0);
-  
+
 
   const maxDayCheckOut: string | number = zeroBefore(maxDateOut.getDate());
   const maxDateOutStr: string = year + '-' + monthCheckOut + '-' + maxDayCheckOut;
