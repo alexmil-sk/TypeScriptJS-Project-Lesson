@@ -4,15 +4,39 @@ import { iSearchFormData } from './interfaces.js';
 
 export function renderSearchFormBlock(checkInDate: string, checkOutDate: string) {
 
-  (function search(): iSearchFormData {
-    const searchObj = {
-      city: 'Санкт-Петербург',
-      dateIn: checkInDate,
-      dateOut: checkOutDate,
-      maxPrice: 120
+  //==================================================================
+  function searchForm(): object {
+
+    const queryString: string = window.location.search.slice(1);
+    const paramsObj: object = {};
+
+    if (queryString) {
+      const arr: string[] = queryString.split('&');
+
+      for (let i = 0; i < arr.length; i++) {
+        const elem: string[] = arr[i].split('=');
+        let paramKey: string = elem[0];
+        let paramValue: string = elem[1];
+        paramKey = paramKey.toLowerCase();
+        paramValue = paramValue.toLowerCase();
+        paramsObj[paramKey] = paramValue;
+      }
+    }
+    return paramsObj;
+  }
+  //==================================================================
+
+  function searchFunc(): iSearchFormData {
+    const searchObj: iSearchFormData = {
+      dateIn: searchForm().checkin,
+      dateOut: searchForm().checkout,
+      maxPrice: searchForm().price ? searchForm().price : 'Стоимость не определена'
     };
     return searchObj;
-  }());
+  }
+  console.log('dateIn', searchFunc().dateIn);
+  console.log('dateOut', searchFunc().dateOut);
+  console.log('maxPrice', searchFunc().maxPrice);
 
 
   //========================================

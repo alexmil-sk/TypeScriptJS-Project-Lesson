@@ -5,10 +5,9 @@ export interface iUser {
 }
 
 export interface iSearchFormData {
-  city: string;
   dateIn: string | Date;
   dateOut: string | Date;
-  maxPrice: number | string
+  maxPrice?: number | string
 }
 
 
