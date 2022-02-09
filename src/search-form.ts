@@ -64,14 +64,14 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
   const maxDayCheckOut: string | number = zeroBefore(maxDateOut.getDate());
   const maxDateOutStr: string = year + '-' + monthCheckOut + '-' + maxDayCheckOut;
 
-  while (todayDate > checkInDate || checkOutDate > maxDateOutStr) {
-    if (todayDate > checkInDate) {
-      alert('Введите верную дату въезда в INDEX.JS');
-    } else if (checkOutDate > maxDateOutStr) {
-      alert('Введите вернeю дату отъезда в INDEX.JS');
-    }
-    return;
-  }
+  //while (todayDate > checkInDate || checkOutDate > maxDateOutStr) {
+  //  if (todayDate > checkInDate) {
+  //    alert('Введите верную дату въезда в INDEX.JS');
+  //  } else if (checkOutDate > maxDateOutStr) {
+  //    alert('Введите вернeю дату отъезда в INDEX.JS');
+  //  }
+  //  return;
+  //}
 
   //================================================================
 
