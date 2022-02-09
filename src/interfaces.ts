@@ -1,7 +1,7 @@
 export interface iUser {
   userName: string,
   avatarUrl: string,
-  favorites: number
+  favorites: unknown
 }
 
 export interface iSearchFormData {
