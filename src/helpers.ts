@@ -2,7 +2,7 @@ import { iUser } from './interfaces.js';
 
 //=================< USER DATA>============================================
 
-function getUserData(anyUser: unknown): unknown {
+function getUserData(anyUser: { userName: unknown; avatarUrl: unknown; favorites: unknown }): object {
   const userId: string = (Math.floor(Math.random() * 100)).toString();
   localStorage.removeItem(`user-${userId}`);
   localStorage.setItem(`user-${userId}`, JSON.stringify({
