@@ -8,7 +8,8 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
   function searchForm(): object {
 
     const queryString: string = window.location.search.slice(1);
-    const paramsObj: object = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const paramsObj: any = {};
 
     if (queryString) {
       const arr: string[] = queryString.split('&');
@@ -24,6 +25,7 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
     }
     return paramsObj;
   }
+
   //==================================================================
 
   function searchFunc(): iSearchFormData {
@@ -37,6 +39,7 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
   console.log('dateIn', searchFunc().dateIn);
   console.log('dateOut', searchFunc().dateOut);
   console.log('maxPrice', searchFunc().maxPrice);
+
 
 
   //========================================
