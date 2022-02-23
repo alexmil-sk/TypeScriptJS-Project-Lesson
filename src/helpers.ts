@@ -18,19 +18,35 @@ function getUserData(anyUser: { userName: unknown; avatarUrl: unknown; favorites
 
 localStorage.clear();
 
-export const userMaggie: unknown = getUserData({
+// export const userMaggie: unknown = getUserData({
+//   userName: 'Wade Warren',
+//   avatarUrl: 'img/avatar.png',
+//   favorites: getFavoritesAmount('Wade Warren'),
+// });
+
+export const userMaggie: iUser = {
   userName: 'Wade Warren',
   avatarUrl: 'img/avatar.png',
   favorites: getFavoritesAmount('Wade Warren'),
+};
 
-});
+getUserData(userMaggie);
 
-export const userPeter: unknown = getUserData({
+//export const userPeter: unknown = getUserData({
+//  userName: 'Peter Peterson',
+//  avatarUrl: 'img/avatar2.png',
+//  favorites: getFavoritesAmount('Peter Peterson'),
+//
+//});
+
+export const userPeter: iUser = {
   userName: 'Peter Peterson',
   avatarUrl: 'img/avatar2.png',
   favorites: getFavoritesAmount('Peter Peterson'),
 
-});
+};
+
+getUserData(userPeter);
 
 //=================</ USER DATA>============================================
 
