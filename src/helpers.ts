@@ -4,7 +4,7 @@ import { iUser } from './interfaces.js';
 
 function getUserData(anyUser: { userName: unknown; avatarUrl: unknown; favorites: unknown }): object {
   // userId: string = (Math.floor(Math.random() * 100)).toString();
-  const userId:  number | string = (Math.floor(Math.random() * 100));
+  const userId: number | string = (Math.floor(Math.random() * 100));
   localStorage.removeItem(`user-${userId}`);
   localStorage.setItem(`user-${userId}`, JSON.stringify({
     userName: anyUser.userName,
@@ -13,11 +13,10 @@ function getUserData(anyUser: { userName: unknown; avatarUrl: unknown; favorites
 
   }));
 
-  const locSt: string = localStorage.getItem(`user-${userId}`);
+  const locSt: string | null = localStorage.getItem(`user-${userId}`);
 
-  console.log('locSt: ', locSt);
-
-  const user: iUser = JSON.parse(locSt);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const user: iUser = JSON.parse(locSt!);
   //const user: iUser = JSON.parse(localStorage.getItem(`user-${userId}`));
   return user;
 }
@@ -59,9 +58,19 @@ getUserData(userPeter);
 
 //=================< GET FAVORITES AMOUNT>==================================
 
-function getFavoritesAmount(name: string): number | null {
+function getFavoritesAmount(name: string | null): number | null {
+  //localStorage.setItem(`${name}`, JSON.stringify([`Favorite-1-${name}`, `Favorite-2-${name}`, `Favorite-3-${name}`]));
+
   localStorage.setItem(`${name}`, JSON.stringify([`Favorite-1-${name}`, `Favorite-2-${name}`, `Favorite-3-${name}`]));
-  const num: number | null = (JSON.parse(localStorage.getItem(`${name}`))).length;
+
+
+
+  const arrNum: string | null = localStorage.getItem(`${name}`);
+  
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const num: number | null = (JSON.parse(arrNum!).length);
+
+  //const num: number | null = (JSON.parse(localStorage.getItem(`${name}`))).length;
   return num;
 }
 
