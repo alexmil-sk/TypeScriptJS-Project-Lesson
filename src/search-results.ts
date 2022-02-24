@@ -12,7 +12,7 @@ export function renderSearchStubBlock () {
   );
 }
 
-export function renderEmptyOrErrorSearchBlock (reasonMessage) {
+export function renderEmptyOrErrorSearchBlock (reasonMessage: unknown) {
   renderBlock(
     'search-results-block',
     `
