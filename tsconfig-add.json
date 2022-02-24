@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
     /*Восемь файлов могут быть заменены флагом "strict": true в файле tsconfig.json*/
-		//"alwaysStrict": true,
+		"alwaysStrict": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
 		"strictPropertyInitialization": true,

@@ -29,10 +29,11 @@ export function renderSearchFormBlock(checkInDate: string, checkOutDate: string)
   //==================================================================
 
   function searchFunc(): iSearchFormData {
+    const obj: object = searchForm();
     const searchObj: iSearchFormData = {
-      dateIn: searchForm().checkin,
-      dateOut: searchForm().checkout,
-      maxPrice: searchForm().price ? searchForm().price : 'Стоимость не определена'
+      dateIn: Object.values(obj)[0],
+      dateOut: Object.values(obj)[1],
+      maxPrice: Object.values(obj)[2] ? Object.values(obj)[2] : 'Стоимость не определена'
     };
     return searchObj;
   }
